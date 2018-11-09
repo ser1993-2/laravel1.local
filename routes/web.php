@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('pages.messages.index');
+//});
+
+
+Route::get('/',['uses'=>'HomeController@index','as'=>'home']);
+
+
+Route::get('message/{id}/edit',['uses'=>'HomeController@edit','as'=>'message.edit'])->where(['id'=>'[0-9]+']);
