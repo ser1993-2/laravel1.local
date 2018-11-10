@@ -18,5 +18,9 @@
 
 Route::get('/',['uses'=>'HomeController@index','as'=>'home']);
 
+Route::get('message/{id}/edit',['uses'=>'EditController@edit','as'=>'message.edit'])->where(['id'=>'[0-9]+']);
 
-Route::get('message/{id}/edit',['uses'=>'HomeController@edit','as'=>'message.edit'])->where(['id'=>'[0-9]+']);
+Route::get('message/{id}/delete',['uses'=>'DeleteController@delete','as'=>'message.delete'])->where(['id'=>'[0-9]+']);
+
+Route::post('add',['uses'=>'AddController@add','as'=>'message.add']);
+
