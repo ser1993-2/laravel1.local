@@ -1,5 +1,4 @@
 <form method="post" id="id-form_messages">
-
     <div class="form-group">
         <label for="InputName">Имя</label>
         <input type="text" class="form-control" id="InputName" name="name" placeholder="Имя">
