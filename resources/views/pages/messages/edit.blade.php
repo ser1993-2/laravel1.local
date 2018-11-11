@@ -2,32 +2,35 @@
 @extends('index')
 
 @section('content')
+    <form method="post" action="addClient" id="id-form_messages">
+        {{ csrf_field() }}
 
         <div class=" col-lg-6">
+
             <div class="form-group">
                 <label for="InputName">Имя</label>
-                <input type="text" class="form-control" id="InputName" name="name" disabled="disabled" value="{{$message[0]->username}}">
+                <input type="text" class="form-control" id="InputName" name="name"  value="{{$message[0]->username}}">
             </div>
 
             <div class="form-group">
                 <label for="Inputgender">Пол</label>
-                <input type="text" class="form-control" id="Inputgender" name="gender" disabled="disabled" value="{{$message[0]->gender}}">
+                <input type="text" class="form-control" id="Inputgender" name="gender"  value="{{$message[0]->gender}}">
             </div>
 
             <div class="form-group">
                 <label for="Inputtel">Телефон</label>
-                <input type="tel" class="form-control" id="Inputtel" name="tel" disabled="disabled" value="{{$message[0]->phone}}">
+                <input type="tel" class="form-control" id="Inputtel" name="tel" value="{{$message[0]->phone}}">
             </div>
 
             <div class="form-group">
                 <label for="Inputadress">Адрес</label>
-                <input type="tel" class="form-control" id="Inputadress" name="adress" disabled="disabled" value="{{$message[0]->adress}}">
+                <input type="tel" class="form-control" id="Inputadress" name="adress" value="{{$message[0]->adress}}">
             </div>
         </div>
 
         <div class=" col-lg-6">
-            <form method="post" action="addClient" id="id-form_messages">
-                {{ csrf_field() }}
+
+
             <div class="form-group">
                 <label for="Inputbrend">Марка</label>
                 <input type="text" class="form-control" id="Inputbrend" name="brend" placeholder="Lada">

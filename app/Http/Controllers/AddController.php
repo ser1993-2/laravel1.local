@@ -61,7 +61,7 @@ class AddController extends Controller
 
         $findAuto = DB::table('auto')->select('number_auto')->where('number_auto', '=', $number)->get();
 
-        dd($tel);
+
         if (empty($findAuto[0]->number_auto)) {
             DB::table('auto')->insert([
                 ['user_id' => $user_id[0]->id,
