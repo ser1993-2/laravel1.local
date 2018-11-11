@@ -1,22 +1,49 @@
-<form method="post" action="add" id="id-form_messages">
+<form method="post" action="addClient" id="id-form_messages">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="InputName">Имя</label>
-        <input type="text" class="form-control" id="InputName" name="name" placeholder="Имя">
+        <input type="text" class="form-control" id="InputName" name="name" placeholder="ФИО">
     </div>
 
     <div class="form-group">
-        <label for="InputEmail1">Email</label>
-        <input type="email" class="form-control" id="InputEmail1" name="email" placeholder="Email">
+        <label for="Inputgender">Пол</label>
+        <input type="text" class="form-control" id="Inputgender" name="gender" placeholder="Пол">
     </div>
 
     <div class="form-group">
-        <label for="InputMessages">Сообщение</label>
-        <textarea class="form-control" placeholder="Сообщение" name="message" rows="5" cols="50" id="InputMessages"></textarea>
+        <label for="Inputtel">Телефон</label>
+        <input type="tel" class="form-control" id="Inputtel" name="tel" placeholder="8-xxx-xxx-xx-xx">
     </div>
 
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Добавить">
+        <label for="Inputadress">Адрес</label>
+        <input type="tel" class="form-control" id="Inputadress" name="adress" placeholder="Пр.Ленина 54 - 21">
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <label for="Inputbrend">Марка</label>
+        <input type="text" class="form-control" id="Inputbrend" name="brend" placeholder="Lada">
+    </div>
+
+    <div class="form-group">
+        <label for="Inputmodel">Модель</label>
+        <input type="text" class="form-control" id="Inputmodel" name="model" placeholder="Vesta">
+    </div>
+
+    <div class="form-group">
+        <label for="Inputcolor">Цвет</label>
+        <input type="text" class="form-control" id="Inputcolor" name="color" placeholder="Белый">
+    </div>
+
+    <div class="form-group">
+        <label for="Inputnumber">Гос. номер</label>
+        <input type="text" class="form-control" id="Inputnumber" name="number" placeholder="x111xx34">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Добавить">
     </div>
 
 </form>

@@ -3,26 +3,29 @@
     @if ( ! $messages->isEmpty() )
       @foreach($messages as $message)
 
-    <div class="panel panel-default">
+    <div class="panel panel-default col-lg-6">
 
         <div class="panel-heading">
             <h3 class="panel-title">
-                <span>
-                    #{{$message->id}}  {{ $message->username }} </span>
+                <span><i class="glyphicon glyphicon-user"></i>{{ $message->username }} </span>
                 <span class="pull-right label label-info">{{$message->created_at}}</span>
                 <br/>
                 <span>
-                   {{$message->email}}</span>
+                   <i class="glyphicon glyphicon-earphone"></i>  {{$message->phone}}</span>
             </h3>
         </div>
         <div class="panel-body">
-            {{$message->message}}
+            <b>Марка:</b> {{$message->brand}}<br/>
+            <b>Модель:</b>{{$message->model}}<br/>
+            <b>Цвет:</b> {{$message->color}}<br/>
+            <b>Номер:</b> {{$message->number_auto}}<br/>
+            <b>Состояние:</b> {{$message->status}}
             <hr/>
             <div class="pull-right">
                 <a href="/message/{{$message->id}}/edit" class="btn btn-info">
                    <i class="glyphicon glyphicon-pencil"></i>
                 </a>
-                <a href="/message/{{$message->id}}/delete" class="btn btn-info">
+                <a href="/message/{{$message->id}}/delete" class="btn btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
                     </a>
             </div>
@@ -31,7 +34,4 @@
         @endforeach
         @endif
 
-    <div class="text-center">
-       пагенация
-    </div>
 </div>
