@@ -8,9 +8,9 @@ use Illuminate\Routing\Redirector;
 
 class DeleteController extends Controller
 {
-    public function delete($id)
+    public function delete($id,$number)
     {
-        DB::table('auto')->where('id', '=', $id)->delete();
+        DB::table('auto')->where('number_auto', '=', $number)->delete();
 
         return redirect()->route('home');
     }

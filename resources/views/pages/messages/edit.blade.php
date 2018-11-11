@@ -85,7 +85,7 @@
                         <div class="pull-right">
                         <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></button>
 
-                        <a href="/message/{{$item->auto_id}}/delete" class="btn btn-danger">
+                        <a href="{{$item->number_auto}}/delete" class="btn btn-danger">
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>
                 </div>

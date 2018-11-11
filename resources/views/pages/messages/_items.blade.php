@@ -25,7 +25,7 @@
                 <a href="{{$message->user_id}}/edit" class="btn btn-info">
                    <i class="glyphicon glyphicon-pencil"></i>
                 </a>
-                <a href="{{$message->user_id}}/delete" class="btn btn-danger">
+                <a href="{{$message->user_id}}/{{$message->number_auto}}/delete" class="btn btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
                     </a>
             </div>

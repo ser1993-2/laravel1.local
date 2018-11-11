@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Redirector;
+use function PHPSTORM_META\elementType;
 
 class AddController extends Controller
 {
@@ -12,9 +13,17 @@ class AddController extends Controller
     {
 
         if ($id == 0) {
-            $this->setClient($request);
-        }
 
+            $tel = $request->input('tel');
+            $number = $request->input('number');
+            $find = $this->findClient($tel,$number);
+
+            if ($find == true) {
+                return redirect()->back()->with('alert', 'Пользователь с такими данными уже существует');
+            }else {
+                $this->setClient($request);
+            }
+        }
 
         $this->setAuto($request);
 
@@ -71,7 +80,16 @@ class AddController extends Controller
                     'number_auto' => $number,
                     'status' => 'Находится на територии']
             ]);
+        }
+    }
 
+    public function findClient($tel,$number)
+    {
+        $findClient = DB::table('users')->select('phone')->where('phone', '=', $tel)->get();
+        $findAuto = DB::table('auto')->select('number_auto')->where('number_auto', '=', $number)->get();
+
+        if (!empty($findClient[0]->phone) || !empty($findClient[0]->phone)) {
+            return true;
         }
     }
 }

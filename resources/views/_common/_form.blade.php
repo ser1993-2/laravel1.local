@@ -1,3 +1,9 @@
+@if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
+
 <form method="post" action="0/addClient" id="id-form_messages">
     {{ csrf_field() }}
     <div class="form-group">

@@ -4,7 +4,7 @@ Route::get('/',['uses'=>'HomeController@index','as'=>'home']);
 
 Route::get('{id}/edit',['uses'=>'EditController@edit','as'=>'edit'])->where(['id'=>'[0-9]+']);
 
-Route::get('{id}/delete',['uses'=>'DeleteController@delete','as'=>'message.delete'])->where(['id'=>'[0-9]+']);
+Route::get('{id}/{number}/delete',['uses'=>'DeleteController@delete','as'=>'message.delete']);
 
 Route::get('add',['uses'=>'HomeController@addIndex','as'=>'addIndex']);
 
