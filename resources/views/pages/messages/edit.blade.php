@@ -14,6 +14,10 @@
         </div>
     @endif
 
+    <div class="form-group">
+        <a href="/" class="btn btn-primary" >Главная</a>
+    </div>
+
     <form method="post" action="editClient" id="id-form_messages">
         {{ csrf_field() }}
 
@@ -21,22 +25,22 @@
 
             <div class="form-group">
                 <label for="InputName">Имя</label>
-                <input type="text" class="form-control" id="InputName" name="name"  value="{{$user[0]->username}}">
+                <input type="text" class="form-control" id="InputName" name="name"  value="{{$user[0]->username}}" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputgender">Пол</label>
-                <input type="text" class="form-control" id="Inputgender" name="gender"  value="{{$user[0]->gender}}">
+                <input type="text" class="form-control" id="Inputgender" name="gender"  value="{{$user[0]->gender}}" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputtel">Телефон</label>
-                <input type="tel" class="form-control" id="Inputtel" name="tel" pattern="^\+\d{1}\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$" value="{{$user[0]->phone}}">
+                <input type="tel" class="form-control" id="Inputtel" name="tel" pattern="^\+\d{1}\(\d{3}\)\s\d{3}[-]\d{2}[-]\d{2}$" value="{{$user[0]->phone}}" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputadress">Адрес</label>
-                <input type="text" class="form-control" id="Inputadress" name="adress" value="{{$user[0]->adress}}">
+                <input type="text" class="form-control" id="Inputadress" name="adress" value="{{$user[0]->adress}}" required>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Сохранить изменения">
@@ -52,22 +56,22 @@
 
             <div class="form-group">
                 <label for="Inputbrend">Марка</label>
-                <input type="text" class="form-control" id="Inputbrend" name="brend" placeholder="Lada">
+                <input type="text" class="form-control" id="Inputbrend" name="brend" placeholder="Lada" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputmodel">Модель</label>
-                <input type="text" class="form-control" id="Inputmodel" name="model" placeholder="Vesta">
+                <input type="text" class="form-control" id="Inputmodel" name="model" placeholder="Vesta" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputcolor">Цвет</label>
-                <input type="text" class="form-control" id="Inputcolor" name="color" placeholder="Белый">
+                <input type="text" class="form-control" id="Inputcolor" name="color" placeholder="Белый" required>
             </div>
 
             <div class="form-group">
                 <label for="Inputnumber">Гос. номер</label>
-                <input type="text" class="form-control" id="Inputnumber" name="number" placeholder="x111xx34">
+                <input type="text" class="form-control" id="Inputnumber" name="number" placeholder="x111xx34" required>
             </div>
 
             <div class="form-group">
@@ -89,10 +93,10 @@
                 <form method="post" action="{{$item->auto_id}}/editAuto" >
                     {{ csrf_field() }}
                 <div class="panel-body">
-                    <b>Марка:</b><input  type="text" class="form-control" id="Inputmodel" name="brend" value="{{$item->brand}}"><br/>
-                    <b>Модель:</b><input type="text" class="form-control" id="Inputmodel" name="model" value="{{$item->model}}"><br/>
-                    <b>Цвет:</b> <input type="text" class="form-control" id="Inputmodel" name="color" value="{{$item->color}}"><br/>
-                    <b>Номер:</b> <input type="text" class="form-control" id="Inputmodel" name="number" value="{{$item->number_auto}}"><br/>
+                    <b>Марка:</b><input  type="text" class="form-control" id="Inputmodel" name="brend" value="{{$item->brand}}" required><br/>
+                    <b>Модель:</b><input type="text" class="form-control" id="Inputmodel" name="model" value="{{$item->model}}" required><br/>
+                    <b>Цвет:</b> <input type="text" class="form-control" id="Inputmodel" name="color" value="{{$item->color}}" required><br/>
+                    <b>Номер:</b> <input type="text" class="form-control" id="Inputmodel" name="number" value="{{$item->number_auto}} required"><br/>
                     <b>Состояние:</b> {{$item->status}}<br/>
 
                     <hr/>

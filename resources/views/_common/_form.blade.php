@@ -11,9 +11,18 @@
         <input type="text" class="form-control" id="InputName" name="name" pattern="[A-Za-zА-Яа-яЁё]{2,}" placeholder="ФИО" required>
     </div>
 
+    {{--<div class="form-group">--}}
+        {{--<label for="Inputgender">Пол</label>--}}
+        {{--<input type="text" class="form-control" id="Inputgender" name="gender" pattern="[A-Za-zА-Яа-яЁё]{3,}" placeholder="Пол" required>--}}
+    {{--</div>--}}
+
+
     <div class="form-group">
         <label for="Inputgender">Пол</label>
-        <input type="text" class="form-control" id="Inputgender" name="gender" pattern="[A-Za-zА-Яа-яЁё]{3,}" placeholder="Пол" required>
+        <select class="form-control" id="Inputgender" name="gender">
+            <option>Мужской</option>
+            <option>Женский</option>
+        </select>
     </div>
 
     <div class="form-group">
