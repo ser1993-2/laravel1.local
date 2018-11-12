@@ -15,12 +15,12 @@ class CreateAutoTable extends Migration
     {
         Schema::create('auto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id',20);
-            $table->string('brand',20);
-            $table->string('model',20);
-            $table->string('color',15);
-            $table->string('number_auto',10);
-            $table->string('status',30);
+            $table->string('user_id',100);
+            $table->string('brand',100);
+            $table->string('model',100);
+            $table->string('color',100);
+            $table->string('number_auto',100);
+            $table->string('status',100);
             $table->timestamps();
         });
     }
