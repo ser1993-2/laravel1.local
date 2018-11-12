@@ -1,14 +1,14 @@
 <?php
 
+
+Route::post('{u_id}/{a_id}/editAuto',['uses'=>'ClientController@editAuto','as'=>'editAuto']);
+
+//---------------------------------------------------
 Route::get('/',['uses'=>'HomeController@index','as'=>'home']);
-
-Route::get('{id}/edit',['uses'=>'EditController@edit','as'=>'edit'])->where(['id'=>'[0-9]+']);
-
-Route::get('{id}/{number}/delete',['uses'=>'DeleteController@delete','as'=>'message.delete']);
-
 Route::get('add',['uses'=>'HomeController@addIndex','as'=>'addIndex']);
+Route::get('{id}/edit',['uses'=>'HomeController@edit','as'=>'edit'])->where(['id'=>'[0-9]+']);
+Route::get('{id}/{number}/deleteAuto',['uses'=>'ClientController@deleteAuto','as'=>'deleteAuto']);
 
-Route::post('{id}/addClient',['uses'=>'AddController@add','as'=>'addClient'])->where(['id'=>'[0-9]+']);
-
-Route::post('{u_id}/{a_id}/status',['uses'=>'StatController@editStat','as'=>'editAuto']);
-
+Route::post('{id}/addAuto',['uses'=>'ClientController@addAuto','as'=>'addAuto'])->where(['id'=>'[0-9]+']);
+Route::post('{id}/editClient',['uses'=>'ClientController@editClient','as'=>'editClient'])->where(['id'=>'[0-9]+']);
+Route::post('addClient',['uses'=>'ClientController@addClient','as'=>'addClient']);

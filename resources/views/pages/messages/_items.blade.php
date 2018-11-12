@@ -1,3 +1,9 @@
+@if (session('ok'))
+    <div class="alert alert-success">
+        {{ session('ok') }}
+    </div>
+@endif
+
 <div class="messages">
 
     @if ( ! $messages->isEmpty() )
@@ -25,7 +31,7 @@
                 <a href="{{$message->user_id}}/edit" class="btn btn-info">
                    <i class="glyphicon glyphicon-pencil"></i>
                 </a>
-                <a href="{{$message->user_id}}/{{$message->number_auto}}/delete" class="btn btn-danger">
+                <a href="{{$message->user_id}}/{{$message->number_auto}}/deleteAuto" class="btn btn-danger">
                     <i class="glyphicon glyphicon-trash"></i>
                     </a>
             </div>

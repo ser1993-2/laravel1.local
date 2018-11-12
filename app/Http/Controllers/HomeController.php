@@ -38,4 +38,21 @@ class HomeController extends Controller
         return view('pages.client.index',$date);
 
     }
+
+    public function edit($id)
+    {
+        $date = [
+            'title' => 'Автостоянка на Столетова',
+            'pagetitle' => 'Редактирование',
+            'user' => DB::table('users')->select('username','gender','phone','adress')
+                ->where('id', '=', $id)
+                ->get(),
+            'message' => DB::table('users')
+                ->join('auto', 'users.id', '=', 'user_id')
+                ->select('users.*', 'auto.*','auto.id as auto_id')
+                ->where('users.id', '=', $id)
+                ->get()
+        ];
+        return view('pages.messages.edit',$date);
+    }
 }
