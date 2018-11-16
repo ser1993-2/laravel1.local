@@ -4,17 +4,19 @@
     </div>
 @endif
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/dependencyLibs/inputmask.dependencyLib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
+
 <form method="post" action="addClient" id="id-form_messages">
     {{ csrf_field() }}
     <div class="form-group">
         <label for="InputName">Имя</label>
         <input type="text" class="form-control" id="InputName" name="name" pattern="[A-Za-zА-Яа-яЁё]{2,}" placeholder="ФИО" required>
     </div>
-
-    {{--<div class="form-group">--}}
-        {{--<label for="Inputgender">Пол</label>--}}
-        {{--<input type="text" class="form-control" id="Inputgender" name="gender" pattern="[A-Za-zА-Яа-яЁё]{3,}" placeholder="Пол" required>--}}
-    {{--</div>--}}
 
 
     <div class="form-group">
@@ -63,9 +65,6 @@
 
 </form>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/dependencyLibs/inputmask.dependencyLib.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/inputmask/inputmask.min.js"></script>
 <script>
     var inputsTel = document.querySelectorAll('input[type="tel"]');
 
@@ -73,4 +72,11 @@
         "mask": "+7(999) 999-99-99",
         showMaskOnHover: false
     }).mask(inputsTel);
+
+
+        $('#Inputbrend').autocomplete({
+            source: 'brandSearch'
+        });
+
+
 </script>

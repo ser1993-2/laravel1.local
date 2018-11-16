@@ -55,4 +55,23 @@ class HomeController extends Controller
         ];
         return view('pages.messages.edit',$date);
     }
+
+    public function brandSearch(request $request)
+    {
+
+        $array = DB::table('brand_list')->select('brand_name')
+            ->get();
+
+        foreach ($array as $item) {
+            $city[] = $item->brand_name;
+        }
+
+
+        if (!empty($request->get('term')))
+        {
+            $term = $request->get('term');
+            $pattern = '/^'.preg_quote($term).'/iu';
+            echo json_encode(preg_grep($pattern, $city));
+        }
+    }
 }

@@ -12,3 +12,5 @@ Route::get('{id}/{number}/deleteAuto',['uses'=>'ClientController@deleteAuto','as
 Route::post('{id}/addAuto',['uses'=>'ClientController@addAuto','as'=>'addAuto'])->where(['id'=>'[0-9]+']);
 Route::post('{id}/editClient',['uses'=>'ClientController@editClient','as'=>'editClient'])->where(['id'=>'[0-9]+']);
 Route::post('addClient',['uses'=>'ClientController@addClient','as'=>'addClient']);
+
+Route::get('brandSearch',['uses'=>'HomeController@brandSearch','as'=>'brandSearch']);
