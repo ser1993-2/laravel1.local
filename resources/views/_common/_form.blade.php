@@ -14,10 +14,19 @@
 <form method="post" action="addClient" id="id-form_messages">
     {{ csrf_field() }}
     <div class="form-group">
-        <label for="InputName">Имя</label>
-        <input type="text" class="form-control" id="InputName" name="name" pattern="[A-Za-zА-Яа-яЁё]{2,}" placeholder="ФИО" required>
+        <label for="InputName">Логин</label>
+        <input type="text" class="form-control" id="InputName" name="name" pattern="[A-Za-zА-Яа-яЁё]{2,}" placeholder="Логин" required>
     </div>
 
+    <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Пароль" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="example@yandex.ru" required>
+    </div>
 
     <div class="form-group">
         <label for="Inputgender">Пол</label>

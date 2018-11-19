@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -81,9 +82,13 @@ class ClientController extends Controller
             $name = $request->input('name');
             $gender = $request->input('gender');
             $adress = $request->input('adress');
+            $password = $request->input('password');
+            $email = $request->input('email');
 
             DB::table('users')->insert([
                 ['username' => $name,
+                    'password' => password_hash($password, PASSWORD_DEFAULT),
+                    'email' => $email,
                     'gender' => $gender,
                     'phone' => $tel,
                     'adress' => $adress,]
@@ -140,7 +145,33 @@ class ClientController extends Controller
             } else {
                 return redirect()->route('edit', $u_id)->with('alert', 'Номер автомобиля уже существует');
             }
+    }
 
+    public function authLogin(request $request) {
 
+        $email = $request->input('Email');
+        $password = $request->input('password');
+
+        $findClient = DB::table('users')->select('password','id')->where('email', '=', $email)->get();
+
+        if (password_verify($password , $findClient[0]->password)) {
+
+            session(['Log'=>true]);
+            session(['UserId'=>$findClient[0]->id]);
+
+            return redirect()->route('home')->with('LogIn', 'Авторизация');
+        } else {
+            return redirect()->route('home')->with('LogOut', 'Неверная почта или пароль');
+        }
+    }
+
+    public function LogOut(request $request) {
+
+        $request->session()->forget('Log');
+        $request->session()->forget('UserId');
+//        session(['Log'=>false]);
+//        session(['UserId'=>0]);
+        return redirect()->route('home')->with('LogOut', 'Вы вышли');
     }
 }
+
