@@ -48,7 +48,12 @@
 
 <div class="text-right"><b>Всего автомобилей:</b><i class="badge">{{ $count }}</i></div><br/>
 
+@if (empty(Session::has('Log')))
+    <div class="text-left">Для просмотра вам необходимо авторизироватся</div>
+@else
 <div class="row">
 @include('pages.messages._items')
 </div>
+@endif
+
 @stop

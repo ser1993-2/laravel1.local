@@ -29,6 +29,7 @@ class HomeController extends Controller
             'count' => DB::table('auto')->count(),
             'paginat' => DB::table('auto')->select('*')->paginate(2)
         ];
+
         return view('pages.messages.index',$date);
     }
     public function addIndex()

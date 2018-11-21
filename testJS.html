@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="List"> text</div>
+
+<script>
+    var Human = {
+        name: "unname",
+        age: 18
+    };
+
+    var mass = [];
+
+    function Student(name,age) {
+        this.__proto__ = Human;
+        this.name = name;
+        this.age = age;
+    };
+
+    function addStudent(name,age) {
+        mass.push(new Student(name,age));
+    }
+
+    addStudent("ivan",24);
+    addStudent("petr",23);
+    addStudent("anton",22);
+    addStudent("igor",21);
+    addStudent("dasha",18);
+    addStudent("masha",25);
+
+    console.log(mass);
+
+    var list = document.getElementById("List");
+    list.innerHTML = "123321";
+
+
+</script>
+
+</body>
+</html>

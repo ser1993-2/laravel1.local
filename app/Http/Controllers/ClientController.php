@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ClientController extends Controller
 {
@@ -96,6 +97,13 @@ class ClientController extends Controller
 
             $findIdClient = DB::table('users')->select('id')->where('phone', '=', $tel)->get();
             $this->addAuto($findIdClient[0]->id,$request);
+
+            $data = array('key' => 'value');
+
+            Mail::send('email', $data, function($message)
+            {
+                $message->to('s.ageev@monodigital.ru', 'Иван')->subject('Регистрация на автостоянке!');
+            });
 
             return redirect()->route('edit',$findIdClient[0]->id)->with('ok', 'Клиент успешно добавлен');
         }else {
