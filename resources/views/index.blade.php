@@ -7,11 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$title}}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-    <style>
-        body {
-            background-color: black;
-        }
-    </style>
+    <link rel="stylesheet" href="css/background.css"/>
 </head>
 <body>
 
@@ -27,4 +23,5 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script></body>
+<script type="text/javascript" src="js/background.js"></script>
 </html>

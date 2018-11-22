@@ -44,9 +44,16 @@
                 </div>
         @endif
 </div>
+   @if (Cookie::get('background', 'white') == 'white')
+    <input class="form-check-input" type="checkbox" id="Check">
+    @else
+       <input class="form-check-input" type="checkbox" checked="checked" id="Check">
+       @endif
+    <label class="form-check-label" for="Check">
+        Сменить фон
+    </label>
 
-
-<div class="text-right"><b>Всего автомобилей:</b><i class="badge">{{ $count }}</i></div><br/>
+    <div class="text-right"><b>Всего автомобилей:</b><i class="badge">{{ $count }}</i></div><br/>
 
 @if (empty(Session::has('Log')))
     <div class="text-left">Для просмотра вам необходимо авторизироватся</div>

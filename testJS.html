@@ -6,42 +6,93 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+        #List {
+            width: 300px;
+            height: 200px;
+            border: 1px black solid;
+        }
+        .ball {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 50px;
+            top: 50px;
+            border: 1px black solid;
+            border-radius: 50%;
+            background-color: #384c38;
+        }
+
+    </style>
 </head>
 <body>
 
-<div id="List"> text</div>
+<div id="List"></div>
 
 <script>
-    var Human = {
-        name: "unname",
-        age: 18
-    };
-
+    var data = {id:0, x: 100, y: 100, w: 100, h:100};
     var mass = [];
+    var list = document.getElementById("List");
+    var text = "";
 
-    function Student(name,age) {
-        this.__proto__ = Human;
-        this.name = name;
-        this.age = age;
+    function shape(id,x,y,w,h) {
+        this.__proto__ = data;
+        this.id = id;
+        this.x = x;  this.y = y;
+        this.w = w;  this.h = h;
+        this.movX = 1;  this.movY = 1;
     };
 
-    function addStudent(name,age) {
-        mass.push(new Student(name,age));
+    function addShape(x,y,w,h) {
+        id = mass.length;
+        createDivs(id);
+        mass.push(new shape(id,x,y,w,h));
+    };
+
+    function createDivs(id) {
+        var div = document.createElement('div');
+        div.classList.add("ball");
+        div.setAttribute("id", id)
+        List.appendChild(div);
+    };
+
+    function moveBall(ball){
+
+        if (ball.x> (300-10)) {
+            ball.movX = -1;
+        }
+        if (ball.x< 0) {
+            ball.movX = +1;
+        }
+        if (ball.y < 0) {
+            ball.movY = +1;
+        }
+        if (ball.y > (200-10)) {
+            ball.movY = -1;
+        }
+        ball.x = ball.x + ball.movX;
+        var ballId = document.getElementById(ball.id);
+        ballId.style.left = ball.x+"px";
+        ball.y= ball.y + ball.movY;
+        ballId.style.top = ball.y+"px";
+
+    };
+    
+    function run() {
+       mass.forEach(function (item , i , mass) {
+           moveBall(item);
+           console.log(item);
+       })
     }
 
-    addStudent("ivan",24);
-    addStudent("petr",23);
-    addStudent("anton",22);
-    addStudent("igor",21);
-    addStudent("dasha",18);
-    addStudent("masha",25);
+    addShape(10,80,10,10);
+    // addShape(150,150,10,10);
+    // addShape(200,50,10,10);
 
-    console.log(mass);
+   setInterval(run,10);
 
-    var list = document.getElementById("List");
-    list.innerHTML = "123321";
-
-
+console.log('ok');
 </script>
 
 </body>

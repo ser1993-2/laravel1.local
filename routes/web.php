@@ -14,6 +14,7 @@ Route::post('{id}/editClient',['uses'=>'ClientController@editClient','as'=>'edit
 Route::post('addClient',['uses'=>'ClientController@addClient','as'=>'addClient']);
 
 Route::get('brandSearch',['uses'=>'HomeController@brandSearch','as'=>'brandSearch']);
+Route::get('background',['uses'=>'HomeController@background','as'=>'background']);
 Route::post('authLogin',['uses'=>'ClientController@authLogin','as'=>'authLogin']);
 Route::get('LogOut',['uses'=>'ClientController@LogOut','as'=>'LogOut']);
 Auth::routes();

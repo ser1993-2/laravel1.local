@@ -12,10 +12,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
 
     public function index()
     {
@@ -70,4 +66,10 @@ class HomeController extends Controller
             echo json_encode(preg_grep($pattern, $city));
         }
     }
+
+    public function background(request $request) {
+        $color = $request->get('color');
+        Cookie::set('background', $color);
+    }
+
 }
