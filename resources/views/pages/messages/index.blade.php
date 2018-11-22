@@ -44,7 +44,7 @@
                 </div>
         @endif
 </div>
-   @if (Cookie::get('background', 'white') == 'white')
+    @if (empty(Session::has('color')) || Session::has('color') == 'green')
     <input class="form-check-input" type="checkbox" id="Check">
     @else
        <input class="form-check-input" type="checkbox" checked="checked" id="Check">

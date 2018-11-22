@@ -69,7 +69,11 @@ class HomeController extends Controller
 
     public function background(request $request) {
         $color = $request->get('color');
-        Cookie::set('background', $color);
+        if (empty($color)) {
+            session(['color' => 'white']);
+        }else {
+            session(['color' => $color]);
+        }
     }
 
 }
