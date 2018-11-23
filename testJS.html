@@ -3,8 +3,6 @@
 
     <style>
         #List {
-            width: 300px;
-            height: 200px;
             border: 1px black solid;
         }
         .ball {
@@ -15,6 +13,7 @@
             top: 50px;
             border: 1px black solid;
             border-radius: 50%;
+            background-color: greenyellow;
         }
 
     </style>
@@ -24,12 +23,11 @@
 <script>
     var mass = [];
     var list = document.getElementById("List");
-    var ListW = parseInt(list.style.width);
-    var ListH = parseInt(list.style.height);
+    var ListW = parseInt(list.style.width = '500px');
+    var ListH = parseInt(list.style.height = '500px');
     var text = "";
 
 
-    alert(ListW);
     function shape(id,x,y,w,h) {
         movX = Math.random() * (1 - (-1)) + (-1) ;
         movY = Math.random() * (1 - (-1)) + (-1) ;
@@ -70,7 +68,7 @@
 
     function moveBall(ball){
         rand = Math.random() * (1 - (-1)) + (-1) ;
-        if (ball.x> (300)) {
+        if (ball.x> ListW) {
             ball.movX = -1;
             ball.movY += rand;
         }
@@ -82,7 +80,7 @@
             ball.movY = +1;
             ball.movX += rand;
         }
-        if (ball.y > (200)) {
+        if (ball.y > ListH) {
             ball.movY = -1;
             ball.movX += rand;
         }
@@ -110,7 +108,7 @@
                ball2.movX = -1;
                ball1.x = ball1.x + ball1.movX ;
                ball2.x = ball2.x + ball2.movX ;
-               setColor(ball1,ball2);
+             //  setColor(ball1,ball2);
            }
        }
         if ((ball1.x+ball1.h) < (ball2.x+ball2.w) && (ball1.x+ball1.h)  > ball2.x){
@@ -119,14 +117,14 @@
                 ball2.movX = +1;
                 ball1.x = ball1.x + ball1.movX ;
                 ball2.x = ball2.x + ball2.movX ;
-                setColor(ball1,ball2);
+              //  setColor(ball1,ball2);
             }
         }
     }
 
-     for ( var i = 0 ; i < 20 ; i++){
-         randX = Math.random() * (250 - 1) + 1 ;
-         randY = Math.random() * (150 - 1) + 1 ;
+     for ( var i = 0 ; i < 100 ; i++){
+         randX = Math.random() * (ListW - 1) + 1 ;
+         randY = Math.random() * (ListH - 1) + 1 ;
         addShape(randX,randY,10,10);
     }
 
