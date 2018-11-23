@@ -1,0 +1,136 @@
+
+    <title>JavaScript Test</title>
+
+    <style>
+        #List {
+            width: 300px;
+            height: 200px;
+            border: 1px black solid;
+        }
+        .ball {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 50px;
+            top: 50px;
+            border: 1px black solid;
+            border-radius: 50%;
+        }
+
+    </style>
+
+<div id="List"></div>
+
+<script>
+    var mass = [];
+    var list = document.getElementById("List");
+    var ListW = parseInt(list.style.width);
+    var ListH = parseInt(list.style.height);
+    var text = "";
+
+
+    alert(ListW);
+    function shape(id,x,y,w,h) {
+        movX = Math.random() * (1 - (-1)) + (-1) ;
+        movY = Math.random() * (1 - (-1)) + (-1) ;
+        this.id = id;
+        this.x = x;  this.y = y;
+        this.w = w;  this.h = h;
+        this.movX = movX;  this.movY = movY;
+    };
+
+    function addShape(x,y,w,h) {
+        id = mass.length;
+        createDivs(id);
+        mass.push(new shape(id,x,y,w,h));
+    };
+
+    function createDivs(id) {
+        var div = document.createElement('div');
+        div.classList.add("ball");
+        div.setAttribute("id", id)
+        List.appendChild(div);
+    };
+
+    function setColor(ball1,ball2) {
+        rand = Math.random() * (5 - 1) + 1 ;
+        var arrayBall = [ball1,ball2];
+
+        arrayBall.forEach(function (item,i,arrayBall) {
+            var ballCol = document.getElementById(item.id);
+            switch (Math.round(rand)) {
+                case 1: { ballCol.style.backgroundColor = "blue"; break;}
+                case 2: { ballCol.style.backgroundColor = "red"; break;}
+                case 3: { ballCol.style.backgroundColor = "green"; break;}
+                case 4: { ballCol.style.backgroundColor = "yellow"; break;}
+                case 5: { ballCol.style.backgroundColor = "purple"; break;}
+            }
+        })
+    }
+
+    function moveBall(ball){
+        rand = Math.random() * (1 - (-1)) + (-1) ;
+        if (ball.x> (300)) {
+            ball.movX = -1;
+            ball.movY += rand;
+        }
+        if (ball.x< 10) {
+            ball.movX = +1;
+            ball.movY += rand;
+        }
+        if (ball.y < 10) {
+            ball.movY = +1;
+            ball.movX += rand;
+        }
+        if (ball.y > (200)) {
+            ball.movY = -1;
+            ball.movX += rand;
+        }
+        ball.x = ball.x + ball.movX;
+        var ballId = document.getElementById(ball.id);
+        ballId.style.left = ball.x+"px";
+        ball.y= ball.y + ball.movY;
+        ballId.style.top = ball.y+"px";
+
+    };
+    
+    function run() {
+       mass.forEach(function (item , i , mass) {
+           mass.forEach(function (item2 , g, mass) {
+               clashBall(item2,item);
+           });
+           moveBall(item);
+       })
+    }
+
+    function clashBall(ball1,ball2) {
+       if (ball1.x < (ball2.x+ball2.w) && ball1.x > ball2.x){
+           if (ball1.y > ball2.y && ball1.y < ball2.y + ball2.h){
+               ball1.movX = +1;
+               ball2.movX = -1;
+               ball1.x = ball1.x + ball1.movX ;
+               ball2.x = ball2.x + ball2.movX ;
+               setColor(ball1,ball2);
+           }
+       }
+        if ((ball1.x+ball1.h) < (ball2.x+ball2.w) && (ball1.x+ball1.h)  > ball2.x){
+            if (ball1.y > ball2.y && ball1.y < ball2.y + ball2.h){
+                ball1.movX = -1;
+                ball2.movX = +1;
+                ball1.x = ball1.x + ball1.movX ;
+                ball2.x = ball2.x + ball2.movX ;
+                setColor(ball1,ball2);
+            }
+        }
+    }
+
+     for ( var i = 0 ; i < 20 ; i++){
+         randX = Math.random() * (250 - 1) + 1 ;
+         randY = Math.random() * (150 - 1) + 1 ;
+        addShape(randX,randY,10,10);
+    }
+
+    setInterval(run,40);
+
+</script>
+
